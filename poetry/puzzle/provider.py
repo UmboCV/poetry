@@ -327,7 +327,7 @@ class Provider:
 
             try:
                 with temporary_directory() as tmp_dir:
-                    EnvManager.build_venv(tmp_dir)
+                    EnvManager.build_venv(tmp_dir, include_system_packages=True)
                     venv = VirtualEnv(Path(tmp_dir), Path(tmp_dir))
                     venv.run("python", "setup.py", "egg_info")
             except EnvCommandError:
